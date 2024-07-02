@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/estilo.css" media="all">
+    <link rel="stylesheet" href="estilos/estiloProjetoPc.css">
+    <link rel="shortcut icon" href="Imagens/favicon/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <title>Projetos</title>
+</head>
+<body onresize="mudouTamanho()">
+    <header>
+        <span id="burguer" class="material-symbols-outlined" onclick="clickMenu()">menu</span>
+            <menu id="itens">
+                <ul>
+                    <li><a href="projetos.html" rel="next" target="_self">Meus Projetos</a></li>
+                    <li><a href="pdf/curriculum.pdf" download="Curriculum Amina.pdf" type="application/pdf">Baixar Curriculum</a></li>  <br>             
+                </ul>
+                <ul id="contatos">
+                    <h1>Contatos</h1>
+                    <li id="contatos"><a href="https://github.com/aminacouto" target="_blank"><img src="Imagens/git.png" alt="Github"></a></li>
+
+                    <li id="contatos"><a href="https://www.linkedin.com/in/amina-do-couto-11836521a" target="_blank"><img src="Imagens/linkedin.png" alt="LinkedIn"></a></li>
+
+                    <li id="contatos"><a href="https://instagram.com/aminadocouto?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D" target="_blank"><img src="Imagens/insta.png" alt="Instagram"></a></li>
+                </ul>
+            </menu>
+    </header>
+    <main>
+        <section id="box">
+            <div id="voltar"><a id="voltar" href="index.html" rel="prev"><img src="Imagens/close.png" alt="Fechar e voltar para a página inicial"></a></div>
+            <h1>Projetos</h1>
+            <div id="vans">
+                <a href="https://www.figma.com/proto/pTWb6TdGICiMGaxfaQCjL0/Vans?node-id=2-2&t=JvzaYcSto3WZkahh-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A2" rel="next" target="_blank"><img src="Imagens/telavans.png" alt="Abrir projeto Vans no Figma"></a>
+                <div id="legenda">
+                    <h1>Protótipo: aplicativo Vans<h1>
+                    <p>Desenvolvido no intuito de praticar conhecimentos em Figma.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        function mudouTamanho(){
+            if (window.innerWidth >= 768) {
+                itens.style.display = 'block'
+            } else {
+                itens.style.display = 'none'
+            }
+        }
+
+        function clickMenu(){
+            if (itens.style.display === 'block') {
+                itens.style.display = 'none'
+            } else {
+                itens.style.display = 'block'
+            }
+        }
+        window.onload = mudouTamanho;
+    </script>
+</body>
+</html>

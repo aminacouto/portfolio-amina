@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+/* telas médias */
+ @media screen and (min-width: 768px) and (max-width: 992px){
+    #burguer {
+        display: none;
+    }
+    menu {
+        top: 5%;
+        right: 5%;
+    }
+    menu > ul > li{
+        display: inline-block;
+    }
+    menu > ul {
+        display: inline-block;
+    }
+    menu > ul > li > a > img {
+        width: 18px;
+        padding: 0px
+    }
+    #contatos > h1{
+        display: none;
+    }
+    main section#cont {
+        width: 60vw;
+        top: 50%;
+    }
+ } 
+ @media screen and (min-width: 992px) { /*TELAS GRANDES*/
+    #burguer {
+        display: none;
+    }
+    menu {
+        top: 5%;
+        right: 5%;
+    }
+    menu > ul > li{
+        display: inline-block;
+    }
+    menu > ul {
+        display: inline-block;
+    }
+    menu > ul > li > a > img {
+        width: 18px;
+        padding: 0px
+    }
+    #contatos > h1{
+        display: none;
+    }
+    main section#cont {
+        width: 45vw;
+        top: 50%;
+        left: 35%;
+    }
+}
