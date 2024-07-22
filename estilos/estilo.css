@@ -151,17 +151,18 @@ main .p {
     border: none;
 }
 section#box {
+    display: flex;
     background-color: var(--corpreto);
     width: 80%;
     height: 65%;
     transform: translate(10%, 30%);
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 2px 6px 8px var(--shadow);
-    border: 0.5px solid #abad3788;
+
 
 }
-section#box h1 {
+main h1 {
     text-align: center;
     color: var(--cordestaque1);
     font-size: 20px;
@@ -169,10 +170,13 @@ section#box h1 {
 }
 
 /*projeto Vans*/
+section div#vans {
+    flex: 1;
+}
  section div#vans img{
-    border-radius: 18px;
-    border: 4px solid rgb(39, 39, 39);
-    border-bottom: 16px solid rgb(39, 39, 39);
+    width: 200px;
+    border-radius: 12px;
+
 }
 section div#vans a:hover {
     top: -1px;
@@ -180,19 +184,13 @@ section div#vans a:hover {
     border: 1px solid rgba(0, 0, 0, 0);
 }
 
-section div#vans h1 {
-    text-align: left;
-    font-size: 13px;
-    color: var(--cordestaque1);
-    padding: 0px;
-}
 section div#vans p {
-    font-size: 11px;
+    font-size: 13px;
     text-align:left;
 }
 section div#legenda {
     padding: 5px;
-    width: 150px;
+    width: 196px;
 }
 
 /**/
