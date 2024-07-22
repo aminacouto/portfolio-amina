@@ -22,7 +22,7 @@ header {
     background-color: rgba(6, 6, 10, 0.829);
     text-align: right;
 }
-body {
+body{
     display: block;
     position: relative;
     height: 100vh;
@@ -93,11 +93,13 @@ menu ul > li > a:hover {
 }
 menu ul > li > a > img:hover {
     border-radius: 10px;
+    transition-duration: 0.2s;
 }
 
 main {
     height: 100vh;
     background-color: rgba(6, 6, 10, 0.829); /*fundo main borra img*/
+    background-attachment: fixed;
 }
 main section#cont {
     display: block;
@@ -139,58 +141,41 @@ main .p {
 }
 
 /* Pag projetos*/
-#voltar {
-    display: flex;
-    position: absolute;
-    left: 92%;
-    box-shadow: 2px 6px 8px var(--shadow);
-}
-#voltar a:hover {
-    top: -1px;
-    left: 1px;
-    border: none;
-}
+
 section#box {
     display: flex;
-    background-color: var(--corpreto);
-    width: 80%;
-    height: 65%;
-    transform: translate(10%, 30%);
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: 2px 6px 8px var(--shadow);
+    position: absolute;
+    width: 90vw;
+    transform: translate(5%, 20%);
 
-
-}
-main h1 {
-    text-align: center;
-    color: var(--cordestaque1);
-    font-size: 20px;
-    padding: 10px;
 }
 
 /*projeto Vans*/
-section div#vans {
-    flex: 1;
+section div#projeto {
+    background-color: 
+    var(--corpreto);
+    padding: 10px;
+    margin: 5px;
+    border-radius: 12px;
+    width: 200px;
+    height: 250px;
 }
- section div#vans img{
+section div#projeto img{
     width: 200px;
     border-radius: 12px;
-
 }
-section div#vans a:hover {
-    top: -1px;
-    left: 1px;
-    border: 1px solid rgba(0, 0, 0, 0);
+section div#projeto img:hover{ 
+    border-radius: 50%;
+    transition-duration: 0.5s;
 }
 
-section div#vans p {
+section div#projeto p {
     font-size: 13px;
     text-align:left;
 }
 section div#legenda {
     padding: 5px;
-    width: 196px;
+    width: 200px;
 }
 
 /**/

@@ -22,8 +22,14 @@
     #contatos > h1 {
         display: none;
     }
-    #voltar {
-        left: 95%;
+
+    section#box {
+        transform: translate(10%, 30%);
+        width: 200px;
+
+    }
+    section div#projeto img{
+        width: 200px;
     }
  }
  @media screen and (min-width: 992px) { /*TELAS GRANDES*/
@@ -47,8 +53,14 @@
     #contatos > h1 {
         display: none;
     }
-    #voltar {
-        left: 96%;
-    }
 
+    section#box {
+        transform: translate(10%, 30%);
+        width: 200px;
+
+
+    }
+    section div#projeto img{
+        width: 200px;
+    }
 }
