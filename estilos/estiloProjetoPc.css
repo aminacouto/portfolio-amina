@@ -24,10 +24,12 @@
     }
 
     section#box {
-        transform: translate(10%, 30%);
-        width: 200px;
-
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 90vh;
     }
+
     section div#projeto img{
         width: 200px;
     }
@@ -55,11 +57,11 @@
     }
 
     section#box {
-        transform: translate(10%, 30%);
-        width: 200px;
-
-
-    }
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        height: 90vh;
+        }
     section div#projeto img{
         width: 200px;
     }

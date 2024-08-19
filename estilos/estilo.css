@@ -16,13 +16,12 @@
     color: #f0f8ff;
     margin: 0px;
     padding: 0px;
-      
 }
 header {
     background-color: rgba(6, 6, 10, 0.829);
     text-align: right;
 }
-body{
+body, html{
     display: block;
     position: relative;
     height: 100vh;
@@ -99,7 +98,7 @@ menu ul > li > a > img:hover {
 main {
     height: 100vh;
     background-color: rgba(6, 6, 10, 0.829); /*fundo main borra img*/
-    background-attachment: fixed;
+    /*background-attachment: fixed;*/
 }
 main section#cont {
     display: block;
@@ -144,13 +143,15 @@ main .p {
 
 section#box {
     display: flex;
-    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 90vw;
-    transform: translate(5%, 20%);
+    transform: translate(5%, 5%);
 
 }
 
-/*projeto Vans*/
+/*projetos*/
 section div#projeto {
     background-color: 
     var(--corpreto);
@@ -159,6 +160,7 @@ section div#projeto {
     border-radius: 12px;
     width: 200px;
     height: 250px;
+    
 }
 section div#projeto img{
     width: 200px;
