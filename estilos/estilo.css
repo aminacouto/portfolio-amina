@@ -27,7 +27,7 @@ body, html{
     height: 100vh;
     width: 100vw;
     background-color: var(--corpreto);
-    background-image: url(../Imagens/pccortenew.jpg);
+    background-image: url(../Imagens/pc.png);
     background-position: right top;
     background-size: cover;
     background-repeat: no-repeat;
@@ -97,8 +97,8 @@ menu ul > li > a > img:hover {
 
 main {
     height: 100vh;
-    background-color: rgba(6, 6, 10, 0.829); /*fundo main borra img*/
-    /*background-attachment: fixed;*/
+   /* background-color: rgba(6, 6, 10, 0.829); /*fundo main borra img*/
+    background-attachment: fixed;
 }
 main section#cont {
     display: block;
@@ -143,12 +143,11 @@ main .p {
 
 section#box {
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
     width: 90vw;
     transform: translate(5%, 5%);
-
 }
 
 /*projetos*/
