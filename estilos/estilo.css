@@ -155,10 +155,10 @@ section div#projeto {
     background-color: 
     var(--corpreto);
     padding: 10px;
-    margin: 5px;
+    margin: 5px 5px 10px 5px;
     border-radius: 12px;
     width: 200px;
-    height: 250px;
+    height: 280px;
     
 }
 section div#projeto img{
@@ -171,12 +171,32 @@ section div#projeto img:hover{
 }
 
 section div#projeto p {
+    text-indent: 20px;
     font-size: 13px;
     text-align:left;
 }
 section div#legenda {
     padding: 5px;
     width: 200px;
+    height: 60px;
+    overflow-y: auto;
 }
 
+/* Personalizando a barra de rolagem */
+#legenda::-webkit-scrollbar {
+    width: 6px;
+}
+
+#legenda::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 10px; 
+}
+
+#legenda::-webkit-scrollbar-thumb:hover {
+    background-color: hsla(0, 0%, 100%, 0.6);
+}
+
+#legenda::-webkit-scrollbar-track {
+    background: transparent; /* Cor da trilha */
+}
 /**/
