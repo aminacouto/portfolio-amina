@@ -116,16 +116,58 @@ body, html {
     justify-content: flex-start;
 }
 .intro {
-    margin-top: 32px;
     max-width: 600px;
     padding: 0;
     text-align: left;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* columns layout for about section paragraphs */
+.sobre-mim .columns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
+/* skill carousel below about text */
+.skills-carousel {
+    margin: 32px 0;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    gap: 24px;
+    animation: slideContainer 30s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+}
+.skills-carousel img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+@keyframes slideContainer {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 .sobre-mim {
     margin-top: 48px;
-    max-width: 600px;
+    width: 100%;
     padding: 0;
     text-align: left;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative; /* container for skills icons */
+}
+/* place circular icons to right inside about section */
+.sobre-mim .skills-icons {
+    right: 0;
+    top: 20%;
 }
 .sobre-mim > .paragrafo {
     max-width:600px; 
@@ -210,6 +252,10 @@ body, html {
 .projetos {
     margin-top: 48px;
     width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .projetos h2 {
     color: var(--cor-destaque-1);
@@ -258,7 +304,9 @@ body, html {
 .contatos{
     display: flex;
     flex-direction: column;
-     margin-bottom: 20px;
+    margin-bottom: 20px;
+    min-height: 100vh;
+    justify-content: center;
 }
 .contatos h2 {
     color: var(--cor-destaque-1);
@@ -328,5 +376,12 @@ button.download-cv:hover, button.download-cv:hover a {
     .projetos > div {
         flex-direction: column;
         gap: 24px;
+    }
+    /* hide moving skills carousel on narrow viewports */
+    .skills-carousel {
+        display: none;
+    }
+    .intro {
+        padding-right: 0;
     }
 }
