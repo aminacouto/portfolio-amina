@@ -27,13 +27,13 @@
         <nav>
             <ul>
                 <li><span class="material-symbols-outlined">home</span> <a href="index.html">Home</a></li>
-                <li><span class="material-symbols-outlined">person</span> <a href="#">Sobre mim</a></li>
-                <li><span class="material-symbols-outlined">folder</span> <a href="#">Projetos</a></li>
-                <li><span class="material-symbols-outlined">contact_mail</span> <a href="#">Contatos</a></li>
+                <li><span class="material-symbols-outlined">person</span> <a href="#sobre-mim">Sobre mim</a></li>
+                <li><span class="material-symbols-outlined">folder</span> <a href="#projetos">Projetos</a></li>
+                <li><span class="material-symbols-outlined">contact_mail</span> <a href="#contatos">Contatos</a></li>
             </ul>
         </nav>
         <div class="sidebar-bottom">
-            <div class="contatos">
+            <div class="links">
                 <a href="https://github.com/aminacouto" target="_blank"><img src="Imagens/git.png" alt="Github"></a>
                 <a href="https://www.linkedin.com/in/amina-do-couto-11836521a" target="_blank"><img
                         src="Imagens/linkedin.png" alt="LinkedIn"></a>
@@ -46,70 +46,137 @@
         </div>
     </aside>
     <main class="main-content">
-        <section class="intro">
+        <section class="intro" id="intro">
             <p class="num">01</p>
-            <h1><span class="tag">&lt;</span>Olá, sou <span class="highlight">Amina!</span><span class="tag">&gt;</span>
+            <h1>
+                <span class="tag">&lt;</span>
+                Olá, sou <span class="highlight">Amina!</span>
+                <span class="tag">&gt;</span>
             </h1>
+
             <p class="num">02</p>
-            <h2><span class="tag">&lt;</span> Desenvolvedora com formação em Análise e Desenvolvimento de Sistemas, com
-                foco em Front-end e experiência em Suporte em TI.<span class="tag">&gt;</span></h2>
+            <h2>
+                <span class="tag">&lt;</span>
+                Desenvolvedora com experiência em Suporte e Automação em TI
+                <span class="tag">&gt;</span>
+            </h2>
+
             <p class="num">03</p>
-            <h3>Atuo no desenvolvimento de interfaces web responsivas, automação de processos com Python e Bash, e
-                criação de dashboards e visualização de dados.</h3>
-            <p class="skills">HTML5 • CSS3 • JavaScript • Bootstrap • Python • Bash • Git • GitHub • Figma</p>
-        </section>
-        <section class="sobre-mim" style="margin-top:48px;">
-            <h2 style="color:var(--cor-ciano); font-size:1.7em; margin-bottom:16px;">Sobre Mim</h2>
-            <p style="max-width:600px; color:var(--cor-texto); font-size:1.1em;">Sou apaixonada por tecnologia, design e
-                inovação. Tenho experiência em desenvolvimento front-end, automação de processos e suporte em TI. Busco
-                sempre aprender novas ferramentas e contribuir para projetos que impactem positivamente as pessoas.
-                Gosto de trabalhar em equipe, compartilhar conhecimento e transformar ideias em soluções digitais
-                criativas.</p> <!-- Melhorar texto com base no curriculo / Colocar imagens das hard skills (ou colocar na intro)-->
+            <h3>
+                Desenvolvimento de interfaces web responsivas, automação de processos
+                e criação de dashboards para análise e visualização de dados.
+            </h3>
+
+            <p class="skills">
+                HTML5 • CSS3 • JavaScript • Bootstrap • Python • Bash • Git • GitHub • Jekyll • Figma
+            </p>
         </section>
 
-        <!--corrigir espaçamento, deixar cada seção do tamanho da tela -->
+        <section class="sobre-mim" id="sobre-mim">
+            <h2>Sobre Mim</h2>
 
-        <!--Corrigir-->
-        <section class="projetos" style="margin-top:48px;"></section>
-        <h2 style="color:var(--cor-destaque-1); font-size:1.7em; margin-bottom:32px;">Projetos em Destaque</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 32px;">
-            <div
-                style="background: var(--cor-sidebar); border-radius: 16px; box-shadow: 0 2px 8px #0F172A44; padding: 24px; max-width: 320px; min-width: 260px; flex:1;">
-            </div>
-            <a href="https://www.figma.com/proto/pTWb6TdGICiMGaxfaQCjL0/Vans?node-id=2-2&t=JvzaYcSto3WZkahh-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A2"
-                target="_blank"><img src="Imagens/Protótipo Vans.png" alt="Abrir projeto Vans no Figma"
-                    style="width:100%; border-radius: 12px; margin-bottom: 12px;"></a>
-            <div style="color: var(--cor-texto);">
-                <p style="color: var(--cor-ciano); font-weight:600;">Protótipo Vans (Figma)</p>
-                <p>Desenvolvido para aprimorar minhas habilidades em design de interface. Explorei técnicas de
-                    prototipagem e design visual, contribuindo para meu desenvolvimento como designer.</p>
-            </div>
-        </div>
-        <div
-            style="background: var(--cor-sidebar); border-radius: 16px; box-shadow: 0 2px 8px #0F172A44; padding: 24px; max-width: 320px; min-width: 260px; flex:1;">
-            <a href="https://aminacouto.github.io/ToDo-List/" target="_blank"><img src="Imagens/To do list.png"
-                    alt="Abrir projeto ToDo List" style="width:100%; border-radius: 12px; margin-bottom: 12px;"></a>
-            <div style="color: var(--cor-texto);">
-                <p style="color: var(--cor-ciano); font-weight:600;">ToDo List</p>
-                <p>Prática de HTML, CSS e JavaScript. Permite gerenciar tarefas diárias de forma simples, com
-                    funcionalidades para adicionar, editar e remover itens. Experiência prática em manipulação de DOM e
-                    interação do usuário.</p>
-            </div>
-        </div>
-        <div
-            style="background: var(--cor-sidebar); border-radius: 16px; box-shadow: 0 2px 8px #0F172A44; padding: 24px; max-width: 320px; min-width: 260px; flex:1;">
-            <a href="https://aminacouto.github.io/curriculo-aminacouto/" target="_blank"><img
-                    src="Imagens/curriculo online.png" alt="Abrir projeto Currículo online"
-                    style="width:100%; border-radius: 12px; margin-bottom: 12px;"></a>
-            <div style="color: var(--cor-texto);">
-                <p style="color: var(--cor-ciano); font-weight:600;">Currículo Online</p>
-                <p>Desenvolvido com HTML, CSS, JavaScript e ScrollReveal. Interface responsiva e interativa, com
-                    animações suaves para uma navegação agradável e visual atraente.</p>
-            </div>
-        </div>
-        </div>
+            <p class="paragrafo">
+                Sou formada em Análise e Desenvolvimento de Sistemas pela Uninter e em
+                Gastronomia pela PUCRS, com trajetória marcada por uma transição sólida
+                para a área de tecnologia.
+                Atuo com foco em desenvolvimento Front-end,
+                suporte técnico e automação de processos, unindo organização,
+                pensamento analítico e experiência prática em ambientes reais de TI.
+            </p>
+
+            <p class="paragrafo">
+                Durante minha experiência como estagiária de Suporte em TI, realizei
+                atendimento a usuários, acompanhamento e resolução de demandas técnicas,
+                além do desenvolvimento de scripts em Python e Bash voltados à automação
+                e otimização de processos internos. Também participei da criação de
+                dashboards e interfaces analíticas utilizando Python, Jekyll e
+                bibliotecas como Dash e Pandas para coleta, análise e visualização de dados.
+            </p>
+            <p class="paragrafo">
+                Possuo experiência no desenvolvimento de interfaces web responsivas com
+                HTML, CSS, JavaScript e Bootstrap, além do uso de Git e GitHub para
+                versionamento de código. Utilizo Figma e Canva para planejamento visual
+                e criação de interfaces e materiais digitais, sempre buscando equilibrar
+                usabilidade, clareza e estética.
+            </p>
+
+            <p class="paragrafo">
+                Busco oportunidades como Desenvolvedora Júnior ou Suporte em TI,
+                onde eu possa continuar evoluindo tecnicamente e contribuir com soluções
+                eficientes e bem estruturadas.
+            </p>
+
+            <p class="status">Disponível para oportunidades • Desenvolvimento Jr • Suporte em TI</p>
+
+            <button class="download-cv"><a href="pdf/Currículo Amina do Couto.pdf"
+                    download="Curriculum Amina do Couto.pdf" type="application/pdf">Baixar Currículo</a></button>
         </section>
-        <section class="Contatos"></section>
+
+        <section class="projetos" id="projetos">
+            <h2>Projetos em Destaque</h2>
+            <div>
+                <div>
+                    <a href="https://www.figma.com/proto/pTWb6TdGICiMGaxfaQCjL0/Vans?node-id=2-2&t=JvzaYcSto3WZkahh-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A2"
+                        target="_blank"><img src="Imagens/Protótipo Vans.png" alt="Abrir projeto Vans no Figma"></a>
+                    <div class="descricao">
+                        <p class="titulo">Protótipo Vans (Figma)</p>
+                        <p>Desenvolvido para aprimorar minhas habilidades em design de interface. Explorei técnicas de
+                            prototipagem e design visual, contribuindo para meu desenvolvimento como designer.</p>
+                    </div>
+                </div>
+                <div>
+                    <a href="https://aminacouto.github.io/ToDo-List/" target="_blank"><img src="Imagens/To do list.png"
+                            alt="Abrir projeto ToDo List"
+                            style="width:100%; border-radius: 12px; margin-bottom: 12px;"></a>
+                    <div class="descricao">
+                        <p class="titulo">ToDo List</p>
+                        <p>Prática de HTML, CSS e JavaScript. Permite gerenciar tarefas diárias de forma simples, com
+                            funcionalidades para adicionar, editar e remover itens. Experiência prática em manipulação
+                            de
+                            DOM e
+                            interação do usuário.</p>
+                    </div>
+                </div>
+                <div>
+                    <a href="https://aminacouto.github.io/curriculo-aminacouto/" target="_blank"><img
+                            src="Imagens/curriculo online.png" alt="Abrir projeto Currículo online"
+                            style="width:100%; border-radius: 12px; margin-bottom: 12px;"></a>
+                    <div class="descricao">
+                        <p class="titulo">Currículo Online</p>
+                        <p>Desenvolvido com HTML, CSS, JavaScript e ScrollReveal. Interface responsiva e interativa, com
+                            animações suaves para uma navegação agradável e visual atraente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contatos" id="contatos">
+            <h2>Contatos</h2>
+            <p>Fico feliz em conectar! Sinta-se à vontade para entrar em contato através dos canais abaixo.</p>
+
+            <div class="contact-links">
+                <a href="mailto:aminadocouto@outlook.com" class="contact-item">
+                    <img src="Imagens/email.png" alt="Email">
+                    <span>aminadocouto@outlook.com</span>
+                </a>
+                <a href="https://github.com/aminacouto" target="_blank" class="contact-item">
+                    <img src="Imagens/git.png" alt="GitHub">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/amina-do-couto-11836521a" target="_blank" class="contact-item">
+                    <img src="Imagens/linkedin.png" alt="LinkedIn">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://instagram.com/aminadocouto" target="_blank" class="contact-item">
+                    <img src="Imagens/insta.png" alt="Instagram">
+                    <span>Instagram</span>
+                </a>
+            </div>
+        </section>
+        <div class="cv">
+            <h2>Download do Currículo</h2>
+            <button class="download-cv"><a href="pdf/Currículo Amina do Couto.pdf"
+                    download="Curriculum Amina do Couto.pdf">Baixar Currículo</a></button>
+        </div>
     </main>
 </body>
 
