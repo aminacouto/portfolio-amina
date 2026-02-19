@@ -125,33 +125,140 @@ body, html {
     justify-content: center;
 }
 
-/* columns layout for about section paragraphs */
 .sobre-mim .columns {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     width: 100%;
 }
-
-/* skill carousel below about text */
-.skills-carousel {
-    margin: 32px 0;
-    overflow: hidden;
+.skill {
     position: relative;
-    display: flex;
-    gap: 24px;
-    animation: slideContainer 30s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+    z-index: 10;
 }
-.skills-carousel img {
+
+.skill::after {
+    content: attr(data-skill);
+    position: absolute;
+    top: -46px;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px) scale(.95);
+
+    background: rgba(31, 41, 55, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    color: var(--cor-texto);
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    padding: 5px 12px;
+    border-radius: 8px;
+
+    border: 1px solid rgba(167,139,250,0.25);
+    box-shadow: 0 6px 18px rgba(0,0,0,.35);
+    z-index: 20;
+
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+
+    transition:
+        opacity .25s ease,
+        transform .25s cubic-bezier(.22,1,.36,1);
+}
+
+.skill:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+}
+.skill::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%) scale(.8);
+
+    border: 6px solid transparent;
+    border-top-color: rgba(31, 41, 55, 0.9);
+    z-index: 19;
+
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.skill:hover::before {
+    opacity: 1;
+}
+
+
+.skills-carousel {
+    margin: 40px 0;
+    overflow-x: hidden;
+    overflow-y: visible;
+    position: relative;
+    width: 100%;
+}
+
+.skills-carousel::before,
+.skills-carousel::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.skills-carousel::before {
+    left: 0;
+    background: linear-gradient(to right, var(--cor-fundo), transparent);
+}
+
+.skills-carousel::after {
+    right: 0;
+    background: linear-gradient(to left, var(--cor-fundo), transparent);
+}
+
+
+/* trilho */
+.skills-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: slideContainer 40s linear infinite;
+    position: relative;
+    z-index: 5;
+}
+
+/* ícones */
+.skills-track img {
     width: 48px;
     height: 48px;
     object-fit: contain;
     flex-shrink: 0;
+    opacity: 0.8;
+    transition: transform .3s ease, opacity .3s ease;
+}
+
+.skill:hover img {
+    transform: scale(1.18) translateY(-2px);
+    opacity: 1;
+}
+.skills-carousel:hover .skills-track {
+    animation-play-state: paused;
+}
+.skills-carousel:hover .skills-track {
+    animation-play-state: paused;
 }
 
 @keyframes slideContainer {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
 .sobre-mim {
     margin-top: 48px;
