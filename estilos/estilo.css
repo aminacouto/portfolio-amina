@@ -42,6 +42,9 @@ body, html {
     justify-content: space-between;
     padding: 32px 0;
     z-index: 10;
+
+    will-change: transform, opacity;
+    backface-visibility: hidden;
 }
 .profile {
     margin-bottom: 32px;
@@ -197,6 +200,7 @@ body, html {
     overflow-y: visible;
     position: relative;
     width: 100%;
+    will-change: transform;
 }
 
 .skills-carousel::before,
@@ -282,39 +286,33 @@ body, html {
     font-size:1.1em;
 }
 
-.num {
-    color: var(--cor-destaque-1);
-    font-weight: 700;
-    font-size: 1.1em;
-    margin-bottom: 0;
-}
-.tag {
-    color: var(--cor-destaque-1);
-    font-size: 1.2em;
-    font-weight: 700;
-}
 .highlight {
     color: var(--cor-destaque-2);
     font-weight: 700;
     font-size: 1.2em;
 }
 .intro h1 {
-    font-size: 2.2em;
+    font-size: 2.6rem;
     font-weight: 700;
-    margin: 8px 0 16px 0;
-    color: var(--cor-texto);
+    margin-bottom: 14px;
+    line-height: 1.2;
 }
+
 .intro h2 {
-    font-size: 1.6em;
-    font-weight: 600;
-    color: var(--cor-destaque-1);
-    margin: 8px 0 16px 0;
-}
-.intro h3 {
-    font-size: 1.2em;
+    font-size: 1.4rem;
     font-weight: 500;
-    color: var(--cor-destaque-2);
-    margin: 8px 0 16px 0;
+    color: var(--cor-destaque-1);
+    max-width: 520px;
+    margin-bottom: 18px;
+    line-height: 1.5;
+}
+
+.intro h3 {
+    font-size: 1.1rem;
+    color: var(--cor-texto);
+    max-width: 520px;
+    opacity: 0.85;
+    line-height: 1.6;
 }
 .skills {
     font-size: 1.1em;
@@ -355,7 +353,7 @@ body, html {
     font-weight: 600;
 
 }
-
+/**/
 .projetos {
     margin-top: 48px;
     width: 100%;
@@ -364,18 +362,68 @@ body, html {
     flex-direction: column;
     justify-content: center;
 }
+.cardproj {
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+    gap: 32px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    padding-inline: 40px;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+    padding-bottom: 12px;
+    cursor: grab;
+    -webkit-overflow-scrolling: touch;
+
+    -webkit-mask-image: linear-gradient(90deg, transparent 0px, black 40px, black calc(100% - 40px), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0px, black 40px, black calc(100% - 40px), transparent 100%);
+}
+.cardproj::before,
+.cardproj::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 90px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 6;
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+.cardproj::before {
+    left: 0;
+    background: linear-gradient(
+        to right,
+        var(--cor-fundo),
+        transparent
+    );
+}
+.cardproj::after {
+    right: 0;
+    background: linear-gradient(
+        to left,
+        var(--cor-fundo),
+        transparent
+    );
+}
+
 .projetos h2 {
     color: var(--cor-destaque-1);
     font-size: 1.7em;
     margin-bottom: 32px;
 }
-.projetos > div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 32px;
-}
+
+
 .projetos > div > div {
-    background: var(--cor-sidebar);
+    background: linear-gradient(
+        180deg,
+        rgba(31,41,55,0.95),
+        rgba(31,41,55,0.75)
+    );
+    backdrop-filter: blur(6px);
     border-radius: 16px;
     box-shadow: 0 2px 8px #0F172A44;
     padding: 24px;
@@ -385,7 +433,44 @@ body, html {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    scroll-snap-align: start;
+    transition:
+        transform .35s cubic-bezier(.22,1,.36,1),
+        box-shadow .35s ease;
 }
+
+.projetos > div > div:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+
+/* scroll */
+/* largura */
+.projetos > div::-webkit-scrollbar {
+    height: 6px;
+}
+
+/* trilho */
+.projetos > div::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* barra */
+.projetos > div::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        90deg,
+        var(--cor-destaque-1),
+        var(--cor-destaque-2)
+    );
+    border-radius: 20px;
+}
+/* hover */
+.projetos > div::-webkit-scrollbar-thumb:hover {
+    opacity: .8;
+}
+
+
 .projetos > div > div > a{
     text-decoration: none;
     width: 100%;
@@ -480,9 +565,13 @@ button.download-cv:hover, button.download-cv:hover a {
     .sidebar nav ul li {
         margin-bottom: 16px;
     }
-    .projetos > div {
+    .projetos > .cardproj {
         flex-direction: column;
         gap: 24px;
+        overflow: visible;
+        padding-inline: 0;
+        -webkit-mask-image: none;
+        mask-image: none;
     }
     /* hide moving skills carousel on narrow viewports */
     .skills-carousel {
