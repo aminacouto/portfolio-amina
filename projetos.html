@@ -1,99 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos/estilo.css" media="all">
+    <title>Projetos | Amina do Couto</title>
+    <link rel="stylesheet" href="estilos/estilo.css">
     <link rel="stylesheet" href="estilos/estiloProjetoPc.css">
     <link rel="shortcut icon" href="Imagens/favicon/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZJ9VR3NLW"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-3ZJ9VR3NLW');
-    </script>
-    <title>Projetos</title>
 </head>
-
-<body onresize="mudouTamanho()">
-    <header>
-        <span id="burguer" class="material-symbols-outlined" onclick="clickMenu()">menu</span>
-        <menu id="itens">
+<body>
+    <aside class="sidebar">
+        <div class="profile">
+            <img src="Imagens/perfil.png" alt="Foto de perfil" class="avatar">
+        </div>
+        <nav>
             <ul>
-                <li><a href="index.html" rel="next" target="_self">Sobre mim</a></li>
-                <li><a href="projetos.html" rel="next" target="_self">Meus Projetos</a></li>
-                <li><a href="pdf/Curriculum Amina C Cavalheiro.pdf" download="Curriculum Amina.pdf"
-                        type="application/pdf">Baixar Curriculum</a></li> <br>
+                <li><span class="material-symbols-outlined">home</span> <a href="index.html">Home</a></li>
+                <li><span class="material-symbols-outlined">folder</span> <a href="projetos.html">Projetos</a></li>
+                <li><span class="material-symbols-outlined">person</span> <a href="#">Sobre mim</a></li>
             </ul>
-            <ul id="contatos">
-                <h1>Contatos</h1>
-                <li id="contatos"><a href="https://github.com/aminacouto" target="_blank"><img src="Imagens/git.png"
-                            alt="Github"></a></li>
-
-                <li id="contatos"><a href="https://www.linkedin.com/in/amina-do-couto-11836521a" target="_blank"><img
-                            src="Imagens/linkedin.png" alt="LinkedIn"></a></li>
-
-                <li id="contatos"><a href="https://instagram.com/aminadocouto?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D"
-                        target="_blank"><img src="Imagens/insta.png" alt="Instagram"></a></li>
-            </ul>
-        </menu>
-    </header>
-    <main>
-        <section id="box">
-            <div id="projeto"> <!--PROJETO DO FIGMA-->
-                <a href="https://www.figma.com/proto/pTWb6TdGICiMGaxfaQCjL0/Vans?node-id=2-2&t=JvzaYcSto3WZkahh-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A2"
-                    rel="next" target="_blank"><img src="Imagens/Protótipo Vans.png"
-                        alt="Abrir projeto Vans no Figma"></a>
-                <div id="legenda">
-                    <p>Desenvolvido para aprimorar minhas habilidades em design de interface.</p>
-                    <p>Através desta prática, explorei diferentes técnicas de prototipagem e design visual, contribuindo para meu desenvolvimento como designer.</p>
-                </div>
+        </nav>
+        <div class="sidebar-bottom">
+            <div class="contatos">
+                <a href="https://github.com/aminacouto" target="_blank"><img src="Imagens/git.png" alt="Github"></a>
+                <a href="https://www.linkedin.com/in/amina-do-couto-11836521a" target="_blank"><img src="Imagens/linkedin.png" alt="LinkedIn"></a>
+                <a href="https://instagram.com/aminadocouto?utm_source=qr&igshid=MzNlNGNkZWQ4Mg%3D%3D" target="_blank"><img src="Imagens/insta.png" alt="Instagram"></a>
             </div>
-
-            <div id="projeto"> <!--PROJETO TODO LIST-->
-                <a href="https://aminacouto.github.io/ToDo-List/" rel="next" target="_blank"><img
-                        src="Imagens/To do list.png" alt="Abrir projeto ToDo List"></a>
-                <div id="legenda">
-                    <p>Desenvolvido para praticar e aplicar meus conhecimentos em HTML, CSS e JavaScript.</p> 
-                    <p>Este projeto permite aos usuários gerenciar suas tarefas diárias de forma simples e intuitiva, com funcionalidades para adicionar, editar e remover itens.</p>
-                    <p>Através deste projeto, aprofundei minha compreensão de manipulação de DOM e interação do usuário, criando uma experiência prática e envolvente.</p>
-                </div>
+            <div class="idioma">
+                <a href="#">PT</a> / <a href="#">EN</a>
             </div>
-
-            <div id="projeto"> <!--CURRICULO ONLINE-->
-                <a href="https://aminacouto.github.io/curriculo-aminacouto/" rel="next" target="_blank"><img
-                        src="Imagens/curriculo online.png" alt="Abrir projeto Currículo online"></a>
-                <div id="legenda">
-                    <p>Desenvolvido utilizando HTML, CSS, JavaScript e ScrollReveal. </p>
-                    <p>Ele apresenta uma interfaceresponsiva e interativa, permitindo que os usuários explorem minhas habilidades e experiênciasde forma dinâmica.</p>
-                    <p>As animações suaves proporcionadas pelo ScrollReveal melhoram a experiência denavegação, tornando o currículo visualmente atraente.</p>
+        </div>
+    </aside>
+    <main class="main-content">
+        <section class="intro">
+            <h1 style="color: var(--cor-ciano); font-size:2em; margin-bottom:32px;">Projetos em Destaque</h1>
+            <div style="display: flex; flex-wrap: wrap; gap: 32px;">
+                <div style="background: var(--cor-sidebar); border-radius: 16px; box-shadow: 0 2px 8px #0F172A44; padding: 24px; max-width: 320px; min-width: 260px; flex:1;">
+                    <a href="https://www.figma.com/proto/pTWb6TdGICiMGaxfaQCjL0/Vans?node-id=2-2&t=JvzaYcSto3WZkahh-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=2%3A2" target="_blank"><img src="Imagens/Protótipo Vans.png" alt="Abrir projeto Vans no Figma" style="width:100%; border-radius: 12px; margin-bottom: 12px;"></a>
+                    <div style="color: var(--cor-texto);">
+                        <p style="color: var(--cor-ciano); font-weight:600;">Protótipo Vans (Figma)</p>
+                        <p>Desenvolvido para aprimorar minhas habilidades em design de interface. Explorei técnicas de prototipagem e design visual, contribuindo para meu desenvolvimento como designer.</p>
+                    </div>
+                </div>
+                <div style="background: var(--cor-sidebar); border-radius: 16px; box-shadow: 0 2px 8px #0F172A44; padding: 24px; max-width: 320px; min-width: 260px; flex:1;">
+                    <a href="https://aminacouto.github.io/ToDo-List/" target="_blank"><img src="Imagens/To do list.png" alt="Abrir projeto ToDo List" style="width:100%; border-radius: 12px; margin-bottom: 12px;"></a>
+                    <div style="color: var(--cor-texto);">
+                        <p style="color: var(--cor-ciano); font-weight:600;">ToDo List</p>
+                        <p>Prática de HTML, CSS e JavaScript. Permite gerenciar tarefas diárias de forma simples, com funcionalidades para adicionar, editar e remover itens. Experiência prática em manipulação de DOM e interação do usuário.</p>
+                    </div>
+                </div>
+                <div style="background: var(--cor-sidebar); border-radius: 16px; box-shadow: 0 2px 8px #0F172A44; padding: 24px; max-width: 320px; min-width: 260px; flex:1;">
+                    <a href="https://aminacouto.github.io/curriculo-aminacouto/" target="_blank"><img src="Imagens/curriculo online.png" alt="Abrir projeto Currículo online" style="width:100%; border-radius: 12px; margin-bottom: 12px;"></a>
+                    <div style="color: var(--cor-texto);">
+                        <p style="color: var(--cor-ciano); font-weight:600;">Currículo Online</p>
+                        <p>Desenvolvido com HTML, CSS, JavaScript e ScrollReveal. Interface responsiva e interativa, com animações suaves para uma navegação agradável e visual atraente.</p>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-    <script>
-        function mudouTamanho() {
-            if (window.innerWidth >= 768) {
-                itens.style.display = 'block'
-            } else {
-                itens.style.display = 'none'
-            }
-        }
-
-        function clickMenu() {
-            if (itens.style.display === 'block') {
-                itens.style.display = 'none'
-            } else {
-                itens.style.display = 'block'
-            }
-        }
-        window.onload = mudouTamanho;
-    </script>
 </body>
-
 </html>
