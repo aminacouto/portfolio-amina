@@ -2,7 +2,7 @@ const sr = ScrollReveal({
     distance: '40px',
     duration: 900,
     easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
-    reset: false, 
+    reset: false,
     opacity: 0,
     scale: 0.98,
     viewFactor: 0.2
@@ -81,4 +81,28 @@ sr.reveal('.contatos button', { origin: 'bottom', delay: 200 });
 sr.reveal('.contact-item', {
     origin: 'bottom',
     interval: 120
+});
+
+/* cards */
+
+const container = document.querySelector(".cardproj");
+const cards = document.querySelectorAll(".cardproj > div");
+
+cards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        const isOpen = card.classList.contains("card-expandido");
+
+        // fecha tudo primeiro
+        cards.forEach(c => c.classList.remove("card-expandido"));
+        container.classList.remove("focus-mode");
+
+        // se não estava aberto → abre
+        if (!isOpen) {
+            card.classList.add("card-expandido");
+            container.classList.add("focus-mode");
+        }
+    });
+
 });
