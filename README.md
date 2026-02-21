@@ -21,9 +21,11 @@ Links para perfis de redes sociais (GitHub, LinkedIn e Instagram)
 | **Figma**          | Design de protótipos                   |
 | **Google Fonts**   | Tipografias customizadas                   |
 | **FontAwesome**    | Ícones                   |
+| **ScrollReveal**    | Transições                   |
+
 
 ## 🔗 Acesse o Projeto
-[Portfólio](https://aminacouto.github.io/portfolio-amina/projetos.html)
+[Portfólio](https://aminacouto.github.io/portfolio-amina/)
 
 ## 📝 Contato
 
