@@ -84,25 +84,67 @@ sr.reveal('.contact-item', {
 });
 
 /* cards */
-
 const container = document.querySelector(".cardproj");
-const cards = document.querySelectorAll(".cardproj > div");
+const scrollArea = document.querySelector(".scrollcards");
+const cards = document.querySelectorAll(".scrollcards > div");
+
+/* =======================
+   EXPANSÃO DOS CARDS
+======================= */
 
 cards.forEach(card => {
 
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (e) => {
+
+        // evita expandir ao clicar no link
+        if (e.target.closest("a")) return;
 
         const isOpen = card.classList.contains("card-expandido");
 
-        // fecha tudo primeiro
         cards.forEach(c => c.classList.remove("card-expandido"));
         container.classList.remove("focus-mode");
 
-        // se não estava aberto → abre
         if (!isOpen) {
             card.classList.add("card-expandido");
             container.classList.add("focus-mode");
+
+            // centraliza card expandido
+            card.scrollIntoView({
+                behavior: "smooth",
+                inline: "center",
+                block: "nearest"
+            });
         }
+
+        atualizarFades();
     });
 
 });
+
+/* =======================
+   FADE DINÂMICO
+======================= */
+
+function atualizarFades() {
+
+    const scrollLeft = scrollArea.scrollLeft;
+    const maxScroll =
+        scrollArea.scrollWidth - scrollArea.clientWidth;
+
+    // esquerda
+    if (scrollLeft > 5)
+        container.classList.add("fade-left");
+    else
+        container.classList.remove("fade-left");
+
+    // direita
+    if (scrollLeft < maxScroll - 5)
+        container.classList.add("fade-right");
+    else
+        container.classList.remove("fade-right");
+}
+
+scrollArea.addEventListener("scroll", atualizarFades);
+window.addEventListener("resize", atualizarFades);
+
+atualizarFades();

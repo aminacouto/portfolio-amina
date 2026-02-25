@@ -300,10 +300,9 @@ html {
     flex-direction: column;
     justify-content: center;
     position: relative;
-    /* container for skills icons */
 }
 
-/* place circular icons to right inside about section */
+
 .sobre-mim .skills-icons {
     right: 0;
     top: 20%;
@@ -391,7 +390,8 @@ html {
 
 }
 
-/**/
+/* ================= PROJETOS ================= */
+
 .projetos {
     margin-top: 48px;
     width: 100%;
@@ -401,71 +401,137 @@ html {
     justify-content: center;
 }
 
-.cardproj {
-    display: flex;
-    flex-wrap: nowrap;
-    position: relative;
-    gap: 32px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    width: 100%;
-    padding-inline: 40px;
-
-    scroll-behavior: smooth;
-    scroll-snap-type: x proximity;
-    padding-bottom: 12px;
-    cursor: grab;
-    -webkit-overflow-scrolling: touch;
-
-    -webkit-mask-image: linear-gradient(90deg, transparent 0px, black 40px, black calc(100% - 40px), transparent 100%);
-    mask-image: linear-gradient(90deg, transparent 0px, black 40px, black calc(100% - 40px), transparent 100%);
-
-    align-items: stretch;
-}
-
-.cardproj::before,
-.cardproj::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 90px;
-    height: 100%;
-    pointer-events: none;
-    z-index: 6;
-    opacity: 0;
-    transition: opacity .3s ease;
-}
-
-.cardproj::before {
-    left: 0;
-    background: linear-gradient(to right,
-            var(--cor-fundo),
-            transparent);
-}
-
-.cardproj::after {
-    right: 0;
-    background: linear-gradient(to left,
-            var(--cor-fundo),
-            transparent);
-}
-
 .projetos h2 {
     color: var(--cor-destaque-1);
     font-size: 1.7em;
     margin-bottom: 32px;
 }
+.titulo {
+    color: var(--cor-destaque-1);
+    font-size: 1.1em;
+    margin: 10px 0;
+}
 
-.cardproj>div {
+/* ===== CONTAINER COM MÁSCARA ===== */
+
+.cardproj {
+    position: relative;
+    overflow: hidden;
+    padding-inline: 20px;
+    isolation: isolate;
+    /* máscara lateral */
+    -webkit-mask-image: linear-gradient(
+        90deg,
+        transparent 0px,
+        black 40px,
+        black calc(100% - 40px),
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        90deg,
+        transparent 0px,
+        black 40px,
+        black calc(100% - 40px),
+        transparent 100%
+    );
+}
+
+/* fades laterais */
+.cardproj::before,
+.cardproj::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 110px;
+    height: 100%;
+    pointer-events: none;
+    z-index: 6;
+    opacity: 0;
+    transition: opacity .35s ease;
+}
+.cardproj.fade-left::before {
+    opacity: 1;
+}
+
+.cardproj.fade-right::after {
+    opacity: 1;
+}
+
+/* esquerda */
+.cardproj::before {
+    left: 0;
+    background: linear-gradient(
+        to right,
+        rgba(17,24,39,1) 0%,
+        rgba(17,24,39,.95) 35%,
+        rgba(17,24,39,.75) 60%,
+        rgba(17,24,39,0) 100%
+    );
+}
+
+/* direita */
+.cardproj::after {
+    right: 0;
+    background: linear-gradient(
+        to left,
+        rgba(17,24,39,1) 0%,
+        rgba(17,24,39,.95) 35%,
+        rgba(17,24,39,.75) 60%,
+        rgba(17,24,39,0) 100%
+    );
+}
+
+/* ===== SCROLL HORIZONTAL ===== */
+
+.scrollcards {
+    display: flex;
+    gap: 22px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: 40px;
+
+    padding: 0 0 8px 0;
+    cursor: grab;
+    width: 100%;
+}
+
+/* ===== CARDS ===== */
+
+.scrollcards > div {
     background: var(--cor-sidebar);
     border-radius: 12px;
     padding: 16px;
+
+    width: 280px;
+    min-width: 280px;
+    min-height: 480px;
+
+    flex-shrink: 0;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    scroll-snap-align: start; 
+
     transition:
         transform .45s cubic-bezier(.22, 1, .36, 1),
         box-shadow .35s ease,
         filter .35s ease,
         opacity .35s ease;
 }
+
+.scrollcards > div:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+
+/* ===== CARD EXPANDIDO ===== */
 
 .card-expandido {
     width: 620px;
@@ -474,19 +540,14 @@ html {
     scale: 1.02;
 }
 
-.card-expandido .descricao p {
-    -webkit-line-clamp: unset;
-    overflow: visible;
-}
-
-.card-expandido .descricao p:not(.titulo) {
+.scrollcards > div.card-expandido .descricao p:not(.titulo) {
     display: block;
     -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
     overflow: visible;
 }
 
-
-.cardproj.focus-mode>div:not(.card-expandido) {
+.cardproj.focus-mode .scrollcards > div:not(.card-expandido) {
     transform: scale(.92);
     opacity: .45;
     filter: blur(2px);
@@ -497,60 +558,20 @@ html {
     transform: scale(1.06) translateY(-4px);
 }
 
+/* ===== IMAGENS ===== */
 
-.projetos>div>div {
-    width: 300px;
-    min-width: 300px;
-    min-height: 480px;
-    height: auto;
-
-    flex-shrink: 0;
-    overflow: hidden;
-
-    display: flex;
-    flex-direction: column;
-}
-
-.projetos>div>div:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, .35);
-}
-
-/* scroll */
-/* largura */
-.projetos>div::-webkit-scrollbar {
-    height: 6px;
-}
-
-/* trilho */
-.projetos>div::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-/* barra */
-.projetos>div::-webkit-scrollbar-thumb {
-    background: linear-gradient(90deg,
-            var(--cor-destaque-1),
-            var(--cor-destaque-2));
-    border-radius: 20px;
-}
-
-/* hover */
-.projetos>div::-webkit-scrollbar-thumb:hover {
-    opacity: .8;
-}
-
-
-.projetos>div>div>a {
-    text-decoration: none;
+.projetos img {
     width: 100%;
+    border-radius: 12px;
+    margin-bottom: 12px;
 }
 
-.projetos>div>div>.descricao>.titulo {
+/* ===== TEXTOS ===== */
+
+.projetos > div > div > .descricao > .titulo {
     color: var(--cor-destaque-1);
     font-size: 1.1em;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px 0;
 }
 
 .descricao p:not(.titulo) {
@@ -561,27 +582,34 @@ html {
     transition: all .35s ease;
 }
 
+/* ===== SCROLLBAR ===== */
 
-.descricao p:last-child {
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+.scrollcards::-webkit-scrollbar {
+    height: 8px;
 }
 
-.projetos img {
-    width: 100%;
-    border-radius: 12px;
-    margin-bottom: 12px;
+.scrollcards::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        90deg,
+        var(--cor-destaque-1),
+        var(--cor-destaque-2)
+    );
+    border-radius: 20px;
 }
 
-.projetos p[style*="font-weight:600"] {
-    color: var(--cor-destaque-1) !important;
-    font-weight: 600;
-}
+/* ================= RESPONSIVO ================= */
 
-.projetos p {
-    color: var(--cor-texto);
+@media (max-width: 900px) {
+
+    .projetos > .cardproj {
+        flex-direction: column;
+        gap: 24px;
+        overflow: visible;
+        padding-inline: 0;
+
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
 }
 
 .contatos {
