@@ -406,6 +406,7 @@ html {
     font-size: 1.7em;
     margin-bottom: 32px;
 }
+
 .titulo {
     color: var(--cor-destaque-1);
     font-size: 1.1em;
@@ -420,21 +421,22 @@ html {
     padding-inline: 20px;
     isolation: isolate;
     /* máscara lateral */
-    -webkit-mask-image: linear-gradient(
-        90deg,
-        transparent 0px,
-        black 40px,
-        black calc(100% - 40px),
-        transparent 100%
-    );
+    -webkit-mask-image: linear-gradient(90deg,
+            transparent 0px,
+            black 40px,
+            black calc(100% - 40px),
+            transparent 100%);
 
-    mask-image: linear-gradient(
-        90deg,
-        transparent 0px,
-        black 40px,
-        black calc(100% - 40px),
-        transparent 100%
-    );
+    mask-image: linear-gradient(90deg,
+            transparent 0px,
+            black 40px,
+            black calc(100% - 40px),
+            transparent 100%);
+}
+
+.cardproj.focus-mode .scrollcards>div:not(.card-expandido) {
+    opacity: .35;
+    filter: blur(2px);
 }
 
 /* fades laterais */
@@ -450,6 +452,7 @@ html {
     opacity: 0;
     transition: opacity .35s ease;
 }
+
 .cardproj.fade-left::before {
     opacity: 1;
 }
@@ -461,25 +464,21 @@ html {
 /* esquerda */
 .cardproj::before {
     left: 0;
-    background: linear-gradient(
-        to right,
-        rgba(17,24,39,1) 0%,
-        rgba(17,24,39,.95) 35%,
-        rgba(17,24,39,.75) 60%,
-        rgba(17,24,39,0) 100%
-    );
+    background: linear-gradient(to right,
+            rgba(17, 24, 39, 1) 0%,
+            rgba(17, 24, 39, .95) 35%,
+            rgba(17, 24, 39, .75) 60%,
+            rgba(17, 24, 39, 0) 100%);
 }
 
 /* direita */
 .cardproj::after {
     right: 0;
-    background: linear-gradient(
-        to left,
-        rgba(17,24,39,1) 0%,
-        rgba(17,24,39,.95) 35%,
-        rgba(17,24,39,.75) 60%,
-        rgba(17,24,39,0) 100%
-    );
+    background: linear-gradient(to left,
+            rgba(17, 24, 39, 1) 0%,
+            rgba(17, 24, 39, .95) 35%,
+            rgba(17, 24, 39, .75) 60%,
+            rgba(17, 24, 39, 0) 100%);
 }
 
 /* ===== SCROLL HORIZONTAL ===== */
@@ -502,14 +501,14 @@ html {
 
 /* ===== CARDS ===== */
 
-.scrollcards > div {
+.scrollcards>div {
     background: var(--cor-sidebar);
     border-radius: 12px;
     padding: 16px;
 
     width: 280px;
     min-width: 280px;
-    min-height: 480px;
+    min-height: 420px;
 
     flex-shrink: 0;
     overflow: hidden;
@@ -517,7 +516,7 @@ html {
     display: flex;
     flex-direction: column;
 
-    scroll-snap-align: start; 
+    scroll-snap-align: start;
 
     transition:
         transform .45s cubic-bezier(.22, 1, .36, 1),
@@ -526,36 +525,48 @@ html {
         opacity .35s ease;
 }
 
-.scrollcards > div:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0,0,0,.35);
+.scrollcards>div:hover {
+    transform: scale(1.01);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .35);
 }
 
 /* ===== CARD EXPANDIDO ===== */
 
 .card-expandido {
-    width: 620px;
+    width: 720px;
+    max-width: 85vw;
+
     height: auto;
     overflow: visible;
-    scale: 1.02;
+
+    z-index: 20;
+    position: relative;
+
+    /* anima somente tamanho */
+    transition:
+        width .45s cubic-bezier(.22, 1, .36, 1),
+        box-shadow .35s ease;
 }
 
-.scrollcards > div.card-expandido .descricao p:not(.titulo) {
+.scrollcards>div.card-expandido {
+    width: 350px;
+    min-width: 350px;
+
+    overflow: visible;
+
+    z-index: 15;
+
+    transition: width .45s cubic-bezier(.22, 1, .36, 1),
+        transform .35s ease,
+        box-shadow .35s ease,
+        filter .3s ease;
+}
+
+/* remove corte do texto */
+.scrollcards>div.card-expandido .descricao p:not(.titulo) {
     display: block;
     -webkit-line-clamp: unset;
-    -webkit-box-orient: unset;
     overflow: visible;
-}
-
-.cardproj.focus-mode .scrollcards > div:not(.card-expandido) {
-    transform: scale(.92);
-    opacity: .45;
-    filter: blur(2px);
-    pointer-events: none;
-}
-
-.card-expandido:hover {
-    transform: scale(1.06) translateY(-4px);
 }
 
 /* ===== IMAGENS ===== */
@@ -568,7 +579,7 @@ html {
 
 /* ===== TEXTOS ===== */
 
-.projetos > div > div > .descricao > .titulo {
+.projetos>div>div>.descricao>.titulo {
     color: var(--cor-destaque-1);
     font-size: 1.1em;
     margin: 10px 0;
@@ -589,28 +600,13 @@ html {
 }
 
 .scrollcards::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-        90deg,
-        var(--cor-destaque-1),
-        var(--cor-destaque-2)
-    );
+    background: linear-gradient(90deg,
+            var(--cor-destaque-1),
+            var(--cor-destaque-2));
     border-radius: 20px;
 }
 
-/* ================= RESPONSIVO ================= */
-
-@media (max-width: 900px) {
-
-    .projetos > .cardproj {
-        flex-direction: column;
-        gap: 24px;
-        overflow: visible;
-        padding-inline: 0;
-
-        -webkit-mask-image: none;
-        mask-image: none;
-    }
-}
+/* ---------- CONTATOS ---------- */
 
 .contatos {
     display: flex;
@@ -642,12 +638,15 @@ html {
     border-radius: 8px;
     text-decoration: none;
     color: var(--cor-texto);
-    transition: background 0.2s, color 0.2s;
+    transition: background .2s ease, color .2s ease;
 }
 
 .contact-item:hover {
     background: var(--cor-fundo);
 }
+
+
+/* ---------- DOWNLOAD CV ---------- */
 
 .cv {
     margin-bottom: 10px;
@@ -671,7 +670,7 @@ button.download-cv a {
     border-radius: 8px;
     text-decoration: none;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    transition: background .2s ease, color .2s ease;
 }
 
 button.download-cv:hover,
@@ -679,7 +678,26 @@ button.download-cv:hover a {
     background: var(--cor-fundo);
 }
 
+/* ================= RESPONSIVO ================= */
+
+/* ---------- TABLET / TELAS MÉDIAS ---------- */
 @media (max-width: 900px) {
+    * {
+        font-size: 1.1rem;
+    }
+
+    .sobre-mim {
+        padding: 0 12px;
+    }
+
+    .sobre-mim .columns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* Sidebar compacta */
     .sidebar {
         width: 60px;
         padding: 16px 0;
@@ -687,7 +705,8 @@ button.download-cv:hover a {
 
     .main-content {
         margin-left: 60px;
-        padding: 24px 12px 0 12px;
+        margin-top: 6px;
+        padding: 12px 12px 0 12px;
     }
 
     .profile,
@@ -699,21 +718,161 @@ button.download-cv:hover a {
         margin-bottom: 16px;
     }
 
-    .projetos>.cardproj {
-        flex-direction: column;
-        gap: 24px;
-        overflow: visible;
-        padding-inline: 0;
-        -webkit-mask-image: none;
-        mask-image: none;
-    }
-
-    /* hide moving skills carousel on narrow viewports */
-    .skills-carousel {
-        display: none;
-    }
-
     .intro {
         padding-right: 0;
     }
+
+    /* ================= TABLET — GRID HORIZONTAL ================= */
+
+    .cardproj {
+        overflow: visible;
+        padding-inline: 0;
+
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+    .cardproj > h2 {
+        margin: 0 0 12px 0;
+    }
+
+    /* container dos cards */
+    .scrollcards {
+        display: grid;
+        /* duas linhas */
+        grid-template-rows: repeat(2, auto);
+        /* fluxo horizontal */
+        grid-auto-flow: column;
+        /* largura automática das colunas */
+        grid-auto-columns: 320px;
+        gap: 10px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 12px;
+    }
+
+    /* cada card */
+    .scrollcards>div {
+        scroll-snap-align: center;
+    }
 }
+
+    /* ---------- MOBILE ---------- */
+    @media (max-width: 768px) {
+        * {
+            font-size: 1rem;
+        }
+
+        .sobre-mim .columns {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* transforma carrossel em layout vertical */
+        .scrollcards {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            overflow-x: visible;
+        }
+
+        /* cards padrão */
+        .cardproj {
+            width: 92%;
+            max-width: 420px;
+            transition:
+                width .4s cubic-bezier(.22, 1, .36, 1),
+                transform .3s ease,
+                box-shadow .3s ease;
+        }
+
+        /* card expandido no mobile */
+        .card-expandido {
+            width: 92%;
+            min-width: unset;
+            transform: translateY(-4px);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, .35);
+        }
+
+        /* remove fades laterais (não fazem sentido no mobile) */
+        .cardproj::before,
+        .cardproj::after {
+            display: none;
+        }
+
+        .scrollcards {
+            flex-direction: column;
+            overflow-x: visible;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .scrollcards>div {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .card-expandido {
+            width: 100%;
+            transform: none;
+        }
+
+        /* remove fades */
+        .cardproj::before,
+        .cardproj::after {
+            display: none;
+        }
+    }
+
+    /* ================= NAV RESPONSIVA ================= */
+
+    /* ----- TABLET E MOBILE ----- */
+    @media (max-width: 900px) {
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0 16px;
+            z-index: 999;
+        }
+
+        /* menu vira horizontal */
+        .sidebar nav ul {
+            display: flex;
+            flex-direction: row;
+            gap: 24px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar nav ul li {
+            margin: 0;
+        }
+
+        /* esconde infos grandes */
+        .profile,
+        .sidebar-bottom {
+            display: none;
+        }
+
+        .sidebar nav ul li .material-symbols-outlined {
+            display: none;
+        }
+
+        /* conteúdo desce para não ficar atrás da navbar */
+        .main-content {
+            margin-left: 0;
+            margin-top: 80px;
+            padding: 24px 16px;
+        }
+    }

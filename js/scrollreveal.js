@@ -68,7 +68,7 @@ sr.reveal('.skills-carousel', {
 });
 
 /* projetos */
-sr.reveal('.projetos > div > div', {
+sr.reveal('.cardproj', {
     origin: 'bottom',
     interval: 150,
     distance: '50px'
@@ -109,11 +109,10 @@ cards.forEach(card => {
             container.classList.add("focus-mode");
 
             // centraliza card expandido
-            card.scrollIntoView({
-                behavior: "smooth",
-                inline: "center",
-                block: "nearest"
-            });
+            scrollArea.scrollTo({
+                left: card.offsetLeft - scrollArea.clientWidth / 2 + card.clientWidth / 2,
+                behavior: "smooth"
+});
         }
 
         atualizarFades();
